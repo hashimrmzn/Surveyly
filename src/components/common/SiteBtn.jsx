@@ -2,25 +2,13 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-/**
- * Global reusable button component
- * Props:
- * - text: string (button label)
- * - onClick: function (optional)
- * - link: string (optional — navigates if provided)
- * - color: string (text color)
- * - bgColor: string (background color)
- * - borderColor: string
- * - hoverColor: string (text color on hover)
- * - hoverBg: string (background color on hover)
- * - hoverBorder: string (border color on hover)
- * - size: "sm" | "lg" | undefined
- */
 function SiteButton({
   text = "Sign up for free",
   onClick,
   link,
+  icon, // <-- accept icon
   color = "#fff",
+  border = "2px solid",
   bgColor = "var(--primary-color, #142c50)",
   borderColor = "var(--primary-color, #142c50)",
   hoverColor = "var(--primary-color, #142c50)",
@@ -29,19 +17,24 @@ function SiteButton({
   size = "md",
   style = {},
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   const baseStyle = {
     color,
+    border,
     backgroundColor: bgColor,
     borderColor,
     transition: "all 0.3s ease",
     fontWeight: 600,
-    padding: size === "lg" ? " 1.5rem" : size === "sm" ? " 0.75rem" : "1rem",
+    padding: size === "lg" ? "1.5rem" : size === "sm" ? "0.75rem" : "1rem",
     borderRadius: "8px",
     textDecoration: "none",
+    display: "flex",              // <-- required for icon + text layout
+    alignItems: "center",         // align icon + text vertically
+    gap: "8px",                   // space between icon and text
+    justifyContent: "center",
     ...style,
   };
-
-  const [isHovered, setIsHovered] = useState(false);
 
   const hoverStyle = isHovered
     ? {
@@ -53,7 +46,13 @@ function SiteButton({
 
   const combinedStyle = { ...baseStyle, ...hoverStyle };
 
-  // If link prop is passed → render <Link>, else render <Button>
+  const content = (
+    <>
+      {icon && <span>{icon}</span>}   {/* <-- ICON RENDERED HERE */}
+      {text}
+    </>
+  );
+
   if (link) {
     return (
       <Link
@@ -62,7 +61,7 @@ function SiteButton({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {text}
+        {content}
       </Link>
     );
   }
@@ -74,7 +73,7 @@ function SiteButton({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {text}
+      {content}
     </Button>
   );
 }

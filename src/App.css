@@ -1,23 +1,29 @@
 #root {
   max-width: 100%;
-      width: 100%;
+  width: 100%;
   margin: 0 auto;
 }
-.all-btns,.flex{
+
+.all-btns,
+.flex {
   display: flex;
   justify-content: space-between;
   gap: 100px;
 }
-h1{
+
+h1 {
   font-size: 42px;
 }
-.flex{
+
+.flex {
   gap: 20px;
 }
-.single-data{
+
+.single-data {
   padding: 10px;
   border: 1px solid rgba(121, 121, 6, 0.867);
 }
+
 .counter-sec {
   background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
 }
@@ -34,6 +40,7 @@ h1{
 .counter-sec button {
   width: 200px;
 }
+
 :root {
   --primary-color: #142c50;
 }
@@ -61,46 +68,178 @@ h1{
 
 .form-label {
   color: var(--primary-color) !important;
-      font-weight: 600;
+  font-weight: 600;
 }
+
 .form-control:focus {
   color: var(--bs-body-color);
   background-color: var(--bs-body-bg);
   border-color: var(--primary-color);
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(20, 44, 80, 0.25); 
+  box-shadow: 0 0 0 0.25rem rgba(20, 44, 80, 0.25);
 }
+
 .form-check-input:checked {
-    background-color: var(--primary-color) !important;
-    border-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
 }
 
 .form-wrapper svg {
-    color:var(--primary-color) !important;
+  color: var(--primary-color) !important;
 }
-.hero-sec h1{
+
+.hero-sec h1 {
   width: 60%;
 }
-.min-height{
+
+.min-height {
   min-height: 100vh;
 }
+
 .center-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
 }
-.container{
+
+.container {
   max-width: 1280px !important;
 }
-.site-header{
-background-color:var(--primary-color) !important;
-position: fixed;
-width: 100%;
-top: 0;
+
+.site-header {
+  background-color: var(--primary-color) !important;
+  position: sticky;
+  width: 100%;
+  top: 0;
 }
-.site-logo a,.header-menu a{
+
+.site-logo a,
+.header-menu a {
   color: #fff;
 }
-.site-logo a:hover,.header-menu a:hover{
+
+.site-logo a:hover,
+.header-menu a:hover {
   color: #d4d3d3;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.aside-bar a {
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.aside-bar a:hover {
+  transform: scale(1.05);
+}
+
+.aside-container {
+  width: 20%;
+}
+
+.dashbored-window {
+  width: 80%;
+}
+
+.survey-box input,
+.survey-box textarea,
+.survey-box select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+
+  background: #f8fafc;
+  border: 2px solid #d0d7e2;
+  border-radius: 8px;
+
+  color: #142c50;
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* Hover (soft lift) */
+.survey-box input:hover,
+.survey-box textarea:hover,
+.survey-box select:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+/* Focus (professional highlight) */
+.survey-box input:focus,
+.survey-box textarea :focus,.survey-box select:focus {
+  border-color: var(--primary-color);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(20, 44, 80, 0.15);
+}
+
+.survey-box textarea {
+  resize: none
+}
+.add-ques-box{
+  background-color: #ebf4fb;
+}
+
+.question-type-select {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #d0d7e2;
+  background-color: #f8fafc;
+  color: #142c50;
+  outline: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  appearance: none;         /* removes default arrow in most browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+/* Hover effect */
+.question-type-select:hover {
+  border-color: #142c50;
+  background-color: #f1f5f9;
+}
+
+/* Focus effect */
+.question-type-select:focus {
+  border-color: #142c50;
+  box-shadow: 0 0 0 4px rgba(20, 44, 80, 0.15);
+  background-color: #fff;
+}
+
+/* Optional: Add a simple arrow indicator using a pseudo-element */
+.question-type-select-container {
+  position: relative;
+}
+
+.question-type-select-container::after {
+  content: "▼";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px;
+  color: #142c50;
+}
+
+/* Option styling (limited browser support) */
+.question-type-select option {
+  padding: 10px;
+  background-color: #fff;
+  color: #142c50;
 }

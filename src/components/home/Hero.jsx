@@ -1,9 +1,11 @@
 import React from 'react'
 import { Container } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
 import SiteButton from '../common/SiteBtn';
+import { FiPlusCircle } from "react-icons/fi";
+import { FiUserPlus } from "react-icons/fi";
+
 function Hero() {
-    const navigate = useNavigate();
+    
     const isLoggedIn = !!localStorage.getItem("token");
     return (
         <>
@@ -29,20 +31,35 @@ function Hero() {
                             </p>
 
                             {
-
                                 isLoggedIn ? (
-                                    <>
-                                        <SiteButton text="Build Your Survey Now" link="/dashboard" />
-                                    </>
+                                    <SiteButton
+                                        text="Build Your Survey Now"
+                                        link="/dashboard/create"
+                                        icon={<FiPlusCircle size={18} />}
+                                        color="#142c50"
+                                        bgColor="#fff"
+                                        borderColor="#142c50"
+                                        hoverColor="#fff"
+                                        hoverBg="#142c50"
+                                        hoverBorder="#142c50"
+                                        style={{ width: "260px", padding: "0.6rem 1.4rem" }}
+                                    />
                                 ) : (
-
-                                    <>
-                                        <SiteButton text="Get Started for Free" link="/register" />
-                                    </>
+                                    <SiteButton
+                                        text="Get Started for Free"
+                                        link="/register"
+                                        icon={<FiUserPlus size={18} />}
+                                        color="#142c50"
+                                        bgColor="#fff"
+                                        borderColor="#142c50"
+                                        hoverColor="#fff"
+                                        hoverBg="#142c50"
+                                        hoverBorder="#142c50"
+                                        style={{ width: "260px", padding: "0.6rem 1.4rem" }}
+                                    />
                                 )
-
-
                             }
+
 
                         </div>
                     </Container>
